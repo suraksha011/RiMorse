@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morse — learn, play, decode</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================== LANDING ===================== -->
+<section id="landing" class="screen active">
+  <div class="landing">
+    <div class="hero-tiles" aria-hidden="true">
+      <div class="hero-tile"><div class="face front">M</div><div class="face back">--</div></div>
+      <div class="hero-tile"><div class="face front">O</div><div class="face back">---</div></div>
+      <div class="hero-tile"><div class="face front">R</div><div class="face back">.-.</div></div>
+      <div class="hero-tile"><div class="face front">S</div><div class="face back">...</div></div>
+      <div class="hero-tile"><div class="face front">E</div><div class="face back">.</div></div>
+    </div>
+
+    <div>
+      <div class="eyebrow">dots &amp; dashes</div>
+      <p class="tagline">A tiny signal room for learning Morse code — tap letters, send messages, and train your ear.</p>
+    </div>
+
+    <div class="nav-buttons">
+      <button class="key-btn" data-nav="learn">Learn</button>
+      <button class="key-btn ghost" data-nav="play">Play</button>
+      <button class="key-btn ghost" data-nav="quiz">Quiz</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LEARN ===================== -->
+<section id="learn" class="screen">
+  <div class="wrap">
+    <div class="topbar">
+      <button class="back-btn" data-nav="landing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        Back
+      </button>
+      <span class="page-title">Learn</span>
+      <span style="width:52px"></span>
+    </div>
+    <p class="grid-caption">Tap a tile to reveal its signal and hear it played.</p>
+    <div id="tileGrid" class="tile-grid"></div>
+  </div>
+</section>
+
+<!-- ===================== PLAY ===================== -->
+<section id="play" class="screen">
+  <div class="wrap">
+    <div class="topbar">
+      <button class="back-btn" data-nav="landing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        Back
+      </button>
+      <span class="page-title">Play</span>
+      <span style="width:52px"></span>
+    </div>
+
+    <div class="mode-toggle" id="playModeToggle">
+      <button class="mode-btn active" data-mode="audio">Audio</button>
+      <button class="mode-btn" data-mode="visual">Visual</button>
+    </div>
+
+    <!-- Audio panel -->
+    <div id="playAudioPanel" class="panel" style="display:flex;">
+      <div class="signal-lamp" id="playLamp"></div>
+      <input id="playInputAudio" class="text-input" type="text" placeholder="Type a word or phrase" autocomplete="off">
+      <div class="action-row">
+        <button id="playAudioBtn" class="btn primary">Play sound</button>
+        <button id="switchToVisualBtn" class="btn secondary">Show as visual instead</button>
+      </div>
+      <p class="hint">We'll turn what you type into beeps — dots and dashes, at 620Hz.</p>
+    </div>
+
+    <!-- Visual panel -->
+    <div id="playVisualPanel" class="panel" style="display:none;">
+      <input id="playInputVisual" class="text-input" type="text" placeholder="Type a word or phrase" autocomplete="off">
+      <div class="action-row">
+        <button id="playVisualBtn" class="btn primary">Generate signal</button>
+        <button id="switchToAudioBtn" class="btn secondary">Play as audio instead</button>
+      </div>
+      <div id="playVisualOutput" class="output-visual">
+        <span class="hint">Type something to see its signal.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUIZ ===================== -->
+<section id="quiz" class="screen">
+  <div class="wrap">
+    <div class="topbar">
+      <button class="back-btn" data-nav="landing">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        Back
+      </button>
+      <span class="page-title">Quiz</span>
+      <span class="score-pill" id="quizScore">Score: 0 / 0</span>
+    </div>
+
+    <div class="mode-toggle" id="quizModeToggle">
+      <button class="mode-btn active" data-mode="audio">Audio</button>
+      <button class="mode-btn" data-mode="visual">Visual</button>
+    </div>
+
+    <div class="panel">
+      <div class="signal-lamp" id="quizLamp"></div>
+      <div class="quiz-code" id="quizCode"></div>
+      <button id="quizReplay" class="btn secondary">Play again</button>
+
+      <input id="quizInput" class="text-input" type="text" placeholder="What word is this?" autocomplete="off">
+      <div class="action-row">
+        <button id="quizSubmit" class="btn primary">Submit guess</button>
+        <button id="quizNext" class="btn secondary" style="visibility:hidden;">Next word →</button>
+      </div>
+      <p class="feedback" id="quizFeedback"></p>
+    </div>
+  </div>
+</section>
+
+<footer class="note">built with dots, dashes, and a little whitespace</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

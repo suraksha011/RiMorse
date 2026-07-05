@@ -1,4 +1,4 @@
-# Morse — learn, play, decode
+# RiMorse — learn, play, decode
 
 A small, minimalist Morse code app with three modes: **Learn**, **Play**, and **Quiz**. Built with plain HTML, CSS, and JavaScript — no frameworks, no build step, no dependencies.
 
